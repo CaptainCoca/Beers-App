@@ -1,0 +1,126 @@
+/* Forcer la page à ne pas défiler et à faire 100% de la hauteur */
+html, body {
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    background-color: #fcfcfc;
+    font-family: sans-serif;
+}
+
+/* Container principal en Flexbox vertical */
+.app-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    padding: 15px;
+}
+
+/* Styles du Header */
+.header-box {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    border: 1px solid #1a1d23;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.header-box.dark {
+    background-color: #1a1d23;
+    color: white;
+}
+
+.header-box.light {
+    background-color: white;
+    color: #8e9aaf;
+}
+
+/* Style bouton (Inscription / Connexion) */
+.custom-btn-dark {
+    background-color: #1a1d23 !important; 
+    color: white !important;             
+    border: none;
+    border-radius: 8px;
+    height: 50px;
+    transition: opacity 0.2s;
+}
+
+.custom-btn-dark:hover {
+    opacity: 0.8;
+    color: white;
+}
+
+/* Gestion de la grille de contenu */
+.main-content {
+    flex-grow: 1; 
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+.center-grid {
+    display: flex;
+    flex-direction: column;
+}
+
+.h-100 {
+    height: 100%;
+}
+
+/* Les Boîtes */
+.wireframe-box {
+    border: 1px solid #333;
+    border-radius: 25px;
+    background: white;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+}
+
+.full-height {
+    height: 100%;
+}
+
+.box-label {
+    color: #8e9aaf;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Bibliothèque spécifique */
+.library-box {
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    text-align: left;
+}
+
+.library-box h3, .library-box p {
+    color: #d1d5db;
+}
+
+.align-self-end {
+    align-self: flex-end;
+}
+
+.nav-item {
+    font-size: 0.9rem;
+    color: #8e9aaf;
+}
+
+/* Ajustement Bulma pour que les colonnes internes prennent la hauteur (Casse couilles ce Bulma de mes deux) */
+.is-flex-grow-2 {
+    flex-grow: 2 !important;
+}
+
+/* Style du Footer */
+.custom-footer {
+    padding: 10px;
+    border-top: 1px solid #ddd;
+    font-size: 0.8rem;
+    color: #8e9aaf;
+}

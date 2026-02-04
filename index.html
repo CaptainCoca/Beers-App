@@ -1,23 +1,83 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <head>
-        <meta charset="UTF-8">
-        <link rel="stylesheet" href="style.css">>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Le Maître Houblon</title>
+</head>
+<body>
 
-        <title>Le Maître Houblon</title>
-    </head>
-    <body>
-        <header>
-            <h1>Le Maître Houblon</h1>
+    <div class="app-container">
+        <header class="columns is-mobile is-variable is-2 mb-4">
+            <div class="column is-2">
+                <div class="header-box dark">LOGO</div>
+            </div>
+            <div class="column is-6">
+                <div class="header-box light">LE MAÎTRE HOUBLON</div>
+            </div>
+            <div class="column is-2">
+                <a href="#" class="button is-fullwidth custom-btn-dark">Inscription</a>
+            </div>
+            <div class="column is-2">
+                <a href="#" class="button is-fullwidth custom-btn-dark">Connexion</a>
+            </div>
         </header>
-        <main>
-            <section>
-                <h2>Première zone</h2>
-            </section>
-        </main>
-        <footer>
-            <p>Copyright © 2024 Le Maître Houblon. Tous droits réservés.</p>
+
+        <div class="main-content columns is-variable is-3">
+            <!-- Case de gauche "Bières de la semaine" -->
+            <div class="column is-3">
+                <div class="wireframe-box full-height">
+                    <span class="box-label">Bières de la semaine</span>
+                </div>
+            </div>
+
+            <!-- Cases centrales -->
+            <div class="column is-6 center-grid">
+
+                <!-- Case "Bibliothèque des bières" -->
+                <div class="columns is-multiline is-variable is-3 h-100">
+                    <div class="column is-12 is-flex-grow-2">
+                        <div class="wireframe-box library-box">
+                            <div class="content">
+                                <h3 class="title is-5 mb-2">La Bibliothèque des bières</h3>
+                                <p class="is-size-7">Fouille dans notre collection, filtre par styles, note tes découvertes et partages tes coups de coeur.</p>
+                            </div>
+                            <button class="button is-dark is-small align-self-end">Liste de bière</button>
+                        </div>
+                    </div>
+
+                    <!-- Cases des options -->
+                    <div class="column is-6">
+                        <div class="wireframe-box nav-item">Mes Bars</div>
+                    </div>
+                    <div class="column is-6">
+                        <div class="wireframe-box nav-item">Bars et Bières conseillés</div>
+                    </div>
+                    <div class="column is-6">
+                        <div class="wireframe-box nav-item">Barathon</div>
+                    </div>
+                    <div class="column is-6">
+                        <div class="wireframe-box nav-item">Avis Public</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Case de droite "Bars de la semaine" -->
+            <div class="column is-3">
+                <div class="wireframe-box full-height">
+                    <span class="box-label">Bars de la semaine</span>
+                </div>
+            </div>
+        </div>
+
+        <footer class="custom-footer mt-4">
+            <div class="has-text-centered">
+                <p>© 2026 Le Maître Houblon - L'abus d'alcool est dangereux pour la santé.</p>
+            </div>
         </footer>
-    </body>
+    </div>
+
+</body>
 </html>

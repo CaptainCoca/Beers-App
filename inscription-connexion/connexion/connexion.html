@@ -2,81 +2,44 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page en cours de création</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
-            background-color: #f8fafc;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #1e293b;
-        }
-
-        .container {
-            text-align: center;
-            padding: 2rem;
-            max-width: 500px;
-        }
-
-        .icon {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            display: block;
-        }
-
-        h1 {
-            font-size: 2rem;
-            color: #0f172a;
-            margin-bottom: 0.5rem;
-        }
-
-        p {
-            font-size: 1.1rem;
-            color: #64748b;
-            margin-bottom: 2rem;
-        }
-
-        .btn {
-            display: inline-block;
-            background-color: #3b82f6;
-            color: white;
-            padding: 0.8rem 1.5rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: background 0.3s ease;
-        }
-
-        .btn:hover {
-            background-color: #2563eb;
-        }
-
-        /* Petite animation discrète */
-        .wrench {
-            display: inline-block;
-            animation: move 2.5s infinite ease-in-out;
-        }
-
-        @keyframes move {
-            0%, 100% { transform: rotate(0deg); }
-            50% { transform: rotate(-15deg); }
-        }
-    </style>
+    <title>Connexion - Le Maître Houblon</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
 </head>
 <body>
-
     <div class="container">
-        <span class="icon wrench">🛠️</span>
-        <h1>Page en construction</h1>
-        <p>Désolé ! Nous peaufinons encore le contenu de <strong>cette page</strong>. Elle sera prête très prochainement.</p>
-        
-        <a href="/" class="btn">Retourner à l'accueil</a>
-    </div>
+        <div class="columns is-centered">
+            <div class="column is-4">
+                <div class="login-card">
+                    <h1 class="title has-text-centered">Connexion</h1>
+                    
+                    <form action="login_process.php" method="POST">
+                        <div class="field">
+                            <label class="label">Adresse Mail :</label>
+                            <div class="control">
+                                <input class="input" type="email" name="email" placeholder="exemple@mail.com" required>
+                            </div>
+                        </div>
+                    
+                        <div class="field">
+                            <label class="label">Mot de passe :</label>
+                            <div class="control">
+                                <input class="input" type="password" name="password" placeholder="********" required>
+                            </div>
+                        </div>
+                    
+                        <button type="submit" class="button is-dark is-fullwidth mt-5">Se connecter</button>
+                    </form>
 
+                    <p class="has-text-centered mt-4">
+                        <a href="/inscription-connexion/inscription/inscription.html" class="is-size-6">S'inscrire</a>
+                    </p>
+                    <p class="has-text-centered mt-4">
+                        <a href="/" class="is-size-6">Retour à l'accueil</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

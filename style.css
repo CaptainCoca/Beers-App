@@ -1,10 +1,18 @@
+/* Casier Couleurs (Déclaration de variables CSS*/
+:root {
+    --ambre: #D4A373;
+    --noir-houblon: #1A1D23;
+    --mousse-blanche: #fcfcfc;
+    --malte-gris: #8e9aaf;
+}
+
 /* Forcer la page à ne pas défiler et à faire 100% de la hauteur */
 html, body {
     height: 100%;
     margin: 0;
     overflow: hidden;
-    background-color: #fcfcfc;
-    font-family: sans-serif;
+    background-color: var(--mousse-blanche); /* var choisi dans le casier */
+    font-family: 'Segoe UI', Roboto, sans-serif;
 }
 
 /* Container principal en Flexbox vertical */
@@ -32,9 +40,21 @@ html, body {
     color: white;
 }
 
+.header-logo {
+    max-height: 80%; /* Pour laisser un peu d'espace autour */
+    width: auto;     /* Garde les proportions de l'image */
+    display: block;
+    border: 2px solid var(--noir-houblon);
+    border-radius: 4px;
+    padding: 5px;
+}
+
 .header-box.light {
     background-color: white;
-    color: #8e9aaf;
+    padding: 0 15px; /* Optionnel : un peu d'espace sur les côtés */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Style bouton (Inscription / Connexion) */

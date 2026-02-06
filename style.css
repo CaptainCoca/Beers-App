@@ -11,7 +11,7 @@ html, body {
     height: 100%;
     margin: 0;
     overflow: hidden;
-    background-image: url(../Beers-App/Images/Background.png); 
+    background-image: url(/Images/Background.png); 
     font-family: 'Segoe UI', Roboto, sans-serif;
 }
 

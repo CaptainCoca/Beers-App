@@ -11,7 +11,7 @@ html, body {
     height: 100%;
     margin: 0;
     overflow: hidden;
-    background-color: var(--mousse-blanche); /* var choisi dans le casier */
+    background-image: url(../Beers-App/Images/Background.png); 
     font-family: 'Segoe UI', Roboto, sans-serif;
 }
 
@@ -19,7 +19,7 @@ html, body {
 .app-container {
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    min-height: 100vh; /* Oblige le site à faire 100% de la hauteur de l'écran */
     padding: 15px;
 }
 
@@ -44,17 +44,22 @@ html, body {
     max-height: 80%; /* Pour laisser un peu d'espace autour */
     width: auto;     /* Garde les proportions de l'image */
     display: block;
-    border: 2px solid var(--noir-houblon);
+    border: 2px solid var(--noir-houblon); /* var choisi dans le casier */
     border-radius: 4px;
     padding: 5px;
 }
 
 .header-box.light {
-    background-color: white;
-    padding: 0 15px; /* Optionnel : un peu d'espace sur les côtés */
+    font-family: 'Special Elite', system-ui;
+    min-height: 50px;
+    height: auto !important;
+    font-size: 4.3rem;
+    font-weight: bold;
+    padding: 10px 20px;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    border: 1px solid var(--noir-houblon);
 }
 
 /* Style bouton (Inscription / Connexion) */
@@ -74,7 +79,7 @@ html, body {
 
 /* Gestion de la grille de contenu */
 .main-content {
-    flex-grow: 1; 
+    flex: 1; 
     margin-top: 0 !important;
     margin-bottom: 0 !important;
 }
@@ -148,8 +153,9 @@ html, body {
 
 /* Style du Footer */
 .custom-footer {
-    padding: 10px;
+    background-color: var(--noir-houblon);
+    padding: 1rem 0;
     border-top: 1px solid #ddd;
     font-size: 0.8rem;
-    color: #8e9aaf;
+    color: var(--malte-gris);
 }

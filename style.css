@@ -152,18 +152,47 @@ html, body {
 
 /* Bibliothèque spécifique */
 .library-box {
+    background-image: linear-gradient(rgb(255, 215, 163, 0.8), rgba(109, 62, 7, 0.8)), url(/Images/BilbliothèqueDeBiere.png) !important;
+    background-size: cover !important;
+    background-position: center !important;
+    height: 100%;
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
     text-align: left;
+    border: 2px solid var(--noir-houblon) !important;
+    border-radius: 15px !important;
+    padding: 25px !important;
+    display: flex;
 }
 
-.library-box h3, .library-box p {
-    color: #d1d5db;
+.library-box h3 {
+    font-family: 'Almendra Display', serif;
+    color: var(--noir-houblon) !important;
+    font-size: 2rem;
+    border-bottom: 1px solid var(--noir-houblon);
+    padding-bottom: 10px;
+}
+
+.library-box p {
+    color: var(--noir-houblon) !important;
 }
 
 .align-self-end {
+    background-color: var(--dorée) !important;
+    color: var(--noir-houblon) !important;
+    font-family: 'Special Elite', cursive;
+    font-weight: bold;
+    border: 2px solid var(--noir-houblon) !important;
+    border-radius: 5px;
+    margin-top: 20px;
+    padding: 10px 20px;
     align-self: flex-end;
+}
+
+.align-self-end:hover {
+    background-color: var(--noir-houblon) !important;
+    color: var(--dorée) !important;
 }
 
 .nav-item {

@@ -9,10 +9,11 @@
 
 /* Forcer la page à ne pas défiler et à faire 100% de la hauteur */
 html, body {
-    height: 100%;
-    margin: 0;
-    overflow: hidden;
-    background-image: url(/Images/Background.png); 
+    min-height: 100%;
+    padding: 0%;
+    background-image: url(/Images/Background.png);
+    background-attachment: fixed;
+    background-size: cover;
     font-family: 'Segoe UI', Roboto, sans-serif;
 }
 
@@ -22,23 +23,25 @@ html, body {
     flex-direction: column;
     min-height: 100vh; /* Oblige le site à faire 100% de la hauteur de l'écran */
     padding: 15px;
+    box-sizing: border-box;
 }
 
 /* Styles du Header */
 .header-box {
-    height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 8px;
-    border: 1px solid #1a1d23;
+    border: 1px solid var(--noir-houblon);
     font-weight: bold;
     font-size: 0.9rem;
 }
 
 .header-box.dark {
+    height: 50px;
     background-color: #1a1d23;
     color: white;
+    font-size: 0.9rem;
 }
 
 .header-logo {
@@ -54,8 +57,8 @@ html, body {
 .header-box.light {
     font-family: 'Special Elite', system-ui;
     color: var(--noir-houblon);
-    min-height: 50px;
-    height: 160px !important;
+    min-height: 160px !important;
+    height: auto;
     font-size: 4.5rem;
     font-weight: bold;
     padding: 10px 20px;
@@ -74,7 +77,7 @@ html, body {
     gap: 50px; /* L'espace entre les deux boutons entourés */
     background-color: var(--ambre) !important;
     border: 1px solid var(--noir-houblon);
-    height: 160px !important;
+    min-height: 160px !important;
     border-radius: 8px 8px;
 }
 

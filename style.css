@@ -1,9 +1,10 @@
 /* Casier Couleurs (Déclaration de variables CSS*/
 :root {
-    --ambre: #D4A373;
+    --ambre: #ff73003a;
     --noir-houblon: #1A1D23;
     --mousse-blanche: #fcfcfc;
     --malte-gris: #8e9aaf;
+    --dorée: #f2cc8f;
 }
 
 /* Forcer la page à ne pas défiler et à faire 100% de la hauteur */
@@ -41,40 +42,64 @@ html, body {
 }
 
 .header-logo {
-    max-height: 80%; /* Pour laisser un peu d'espace autour */
+    max-height: 100%; /* Pour laisser un peu d'espace autour */
     width: auto;     /* Garde les proportions de l'image */
     display: block;
     border: 2px solid var(--noir-houblon); /* var choisi dans le casier */
-    border-radius: 4px;
+    border-radius: 8px ;
     padding: 5px;
+    background-color: var(--ambre);
 }
 
 .header-box.light {
     font-family: 'Special Elite', system-ui;
+    color: var(--noir-houblon);
     min-height: 50px;
-    height: auto !important;
-    font-size: 4.3rem;
+    height: 160px !important;
+    font-size: 4.5rem;
     font-weight: bold;
     padding: 10px 20px;
     display: flex;
     align-items: center;
     justify-content: center;
     border: 1px solid var(--noir-houblon);
+    background-color: var(--ambre);
 }
 
 /* Style bouton (Inscription / Connexion) */
-.custom-btn-dark {
-    background-color: #1a1d23 !important; 
-    color: white !important;             
-    border: none;
-    border-radius: 8px;
-    height: 50px;
-    transition: opacity 0.2s;
+.buttons-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px; /* L'espace entre les deux boutons entourés */
+    background-color: var(--ambre) !important;
+    border: 1px solid var(--noir-houblon);
+    height: 160px !important;
+    border-radius: 8px 8px;
 }
 
-.custom-btn-dark:hover {
-    opacity: 0.8;
-    color: white;
+/* Les boutons entourés à l'intérieur */
+.inner-btn {
+    font-family: 'Almendra Display', serif;
+    font-size: 1.3rem;
+    color: var(--noir-houblon) !important;
+    text-decoration: none;
+    background-color: var(--dorée);
+    
+    /* Le détourage (l'entourage) */
+    border: 2px solid var(--noir-houblon);
+    border-radius: 6px; /* Coins légèrement arrondis comme sur ton dessin */
+    padding: 8px 20px; /* Espace entre le texte et sa bordure */
+    
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+/* Effet au survol pour que ça reste interactif */
+.inner-btn:hover {
+    background-color: var(--noir-houblon);
+    color: var(--dorée) !important;
+    transform: scale(1.05); 
 }
 
 /* Gestion de la grille de contenu */

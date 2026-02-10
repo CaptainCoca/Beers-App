@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
+
 /* Casier Couleurs (Déclaration de variables CSS*/
 :root {
     --or: #ffca3a;
     --ambre: #d4a373;
-    --brune: #fcfcfc;
+    --brune: #e5941a;
     --mousse: #fefae0;
     --bois-sombre: #2b1d12;
 }
@@ -79,4 +81,27 @@ a.is-size-6 {
 
 a.is-size-6:hover {
     color: var(--or);
+}
+
+.back-home {
+    position: absolute; 
+    top: 20px;
+    left: 20px;
+    color: var(--bois-sombre) !important;
+    text-decoration: none;
+    font-family: 'Special Elite', cursive;
+    font-size: 1.1rem;
+    padding: 10px 15px;
+    border: 2px solid var(--or); 
+    border-radius: 5px;
+    background: var(--or);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.back-home:hover {
+    color: var(--bois-sombrer) !important;
+    border-color: var(--brune);
+    background: var(--brune);
+    transform: translateX(-5px);
 }

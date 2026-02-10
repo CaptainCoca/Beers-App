@@ -11,7 +11,7 @@
 html, body {
     min-height: 100%;
     padding: 0%;
-    background-image: url(/Images/Background.png);
+    background-image: url(../Beers-App/Images/Background.png);
     background-attachment: fixed;
     background-size: cover;
     font-family: 'Segoe UI', Roboto, sans-serif;
@@ -155,7 +155,7 @@ html, body {
 
 /* Bibliothèque spécifique */
 .library-box {
-    background-image: linear-gradient(rgb(255, 215, 163, 0.8), rgba(109, 62, 7, 0.8)), url(/Images/BilbliothèqueDeBiere.png) !important;
+    background-image: linear-gradient(rgb(255, 215, 163, 0.8), rgba(109, 62, 7, 0.8)), url(../Beers-App/Images/BilbliothèqueDeBiere.png) !important;
     background-size: cover !important;
     background-position: center !important;
     height: 100%;
@@ -206,6 +206,22 @@ html, body {
 /* Ajustement Bulma pour que les colonnes internes prennent la hauteur (Casse couilles ce Bulma de mes deux) */
 .is-flex-grow-2 {
     flex-grow: 2 !important;
+}
+
+/* Style pour l'affichage du pseudo dans le header */
+.user-display {
+    padding: 5px 15px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    border: 1px solid var(--biere-ambre);
+}
+
+.inner-btn {
+    /* Garde ton style actuel pour les boutons */
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.9rem;
 }
 
 /* Style du Footer */

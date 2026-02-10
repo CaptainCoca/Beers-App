@@ -1,0 +1,5 @@
+Deux nouveau fichier : check_session.php qui permet de checké si l'utilisateur est connecté / logout.php pour la deconnexion. Pour le fichier script.js -> permet de lié le check_session et logout au index.html. Ensuite dans le dossier sql tu auras la table de beers et users pour l'inscription et la connexion. Pour l'inscription le php marche, les données vont bien dans la base de données. J'ai modifier le css des deux page c'est plus sympa. ET LE 
+
+POINT LE PLUS IMPORTANT : Tu vas peut-etre remarquer mais les urls ont changer pour le html et css j'ai rajouter le nom de mon dossier, là où il y a le projet car je n'ai pas le choix tout simplement pour que le php marche. Je texpliquerais si tu ne comprends pas vraiment le pourquoi du comment. Ducoup il sera 
+
+probable que tu changes le nom de ton dossier. Voili Voilou.

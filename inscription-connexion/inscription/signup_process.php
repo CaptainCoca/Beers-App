@@ -24,12 +24,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt = $pdo->prepare("INSERT INTO users (pseudo, email, password) VALUES (?, ?, ?)");
         $stmt->execute([$pseudo, $email, $hashedPassword]);
 
-        // 2. CRUCIAL : Enregistrer les infos en session ICI
+        // Enregistrer les infos en session ICI
         // C'est ce qui permettra au script.js de savoir qui est là
         $_SESSION['id'] = $pdo->lastInsertId();
         $_SESSION['pseudo'] = $pseudo;
 
-        echo "<script>alert('Bienvenue, Maitre Houblon ! Ton compte a été créé !'); window.location.href='/index.html';</script>";
+        echo "<script>alert('Bienvenue, Maitre Houblon ! Ton compte a été créé !'); window.location.href='/Beers-App/index.html';</script>";
         
     } catch (PDOException $e) {
         if ($e->getCode() == 23000) {

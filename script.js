@@ -2,7 +2,7 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     // On appelle notre fichier PHP
-    fetch('check_session.php')
+    fetch('/Beers-App/check_session.php')
         .then(response => response.json())
         .then(data => {
             if (data.connected) {
@@ -12,10 +12,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 // On vide les boutons et on injecte le pseudo + déconnexion
                 authZone.innerHTML = `
                     <div class="user-display" style="display: flex; align-items: center; gap: 15px;">
-                        <span style="color: #ffca3a; font-weight: bold;">
-                             <i class="fas fa-user"></i> ${data.pseudo}
+                        <span style="color: #000000; font-weight: bold;">
+                             <i class="fas fa-user"></i> Bienvenue ! ${data.pseudo}
                         </span>
-                        <a href="logout.php" class="inner-btn" style="background-color: #ff3860; color: white;">Déconnexion</a>
+                        <a href="/Beers-App/logout.php" class="inner-btn">Déconnexion</a>
                     </div>
                 `;
             }

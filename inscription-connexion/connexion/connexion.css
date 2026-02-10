@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
+
+:root {
+    --biere-or: #ffca3a;
+    --biere-ambre: #e5941a;
+    --fond-sombre: #1a1a1a;
+}
+
+body {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1505075106905-fb052892c116?q=80&w=2070&auto=format&fit=crop');
+    color: white;
+    font-family: 'Special Elite', system-ui, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
+
+.login-card {
+    background-color: rgba(26, 26, 26, 0.9);
+    padding: 2rem;
+    border: 3px solid var(--biere-ambre);
+    border-radius: 8px;
+    width: 100%;
+    max-width: 400px;
+}
+
+.title {
+    color: var(--biere-or) !important;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 2rem !important;
+    font-size: 2rem;
+}
+
+.field {
+    margin-bottom: 1.5rem;
+}
+
+.label {
+    color: white !important;
+    font-weight: normal;
+    margin-bottom: 0.5rem;
+}
+
+.input {
+    background-color: #333 !important;
+    border: 2px solid var(--biere-ambre) !important;
+    color: white !important;
+    border-radius: 4px;
+    height: 2.5rem;
+}
+
+.input::placeholder {
+    color: #999;
+}
+
+.input:focus {
+    border-color: var(--biere-or) !important;
+    box-shadow: 0 0 8px var(--biere-or) !important;
+}
+
+.button.is-dark {
+    background-color: var(--biere-ambre) !important;
+    color: #1a1a1a !important;
+    font-weight: bold;
+    border: none;
+    text-transform: uppercase;
+    margin-top: 1rem;
+    transition: 0.3s;
+}
+
+.button.is-dark:hover {
+    background-color: var(--biere-or) !important;
+    cursor: pointer;
+}
+
+p a {
+    color: var(--biere-ambre);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+p a:hover {
+    color: var(--biere-or);
+    text-decoration: underline;
+}
+
+.back-home {
+    position: absolute; 
+    top: 20px;
+    left: 20px;
+    color: var(--fond-sombre) !important;
+    text-decoration: none;
+    font-family: 'Special Elite', cursive;
+    font-size: 1.1rem;
+    padding: 10px 15px;
+    border: 2px solid var(--biere-or); 
+    border-radius: 5px;
+    background: var(--biere-or);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.back-home:hover {
+    color: var(--fond-sombre) !important;
+    border-color: var(--biere-ambre);
+    background: var(--biere-ambre);
+    transform: translateX(-5px);
+}

@@ -1,4 +1,7 @@
 <?php
+// 1. Démarrer la session au tout début
+session_start();
+
 $host = 'localhost';
 $dbname = 'maitre_houblon';
 $username_db = 'root';
@@ -15,17 +18,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['email'];
     $pass = $_POST['password'];
 
-    // Hachage du mot de passe
     $hashedPassword = password_hash($pass, PASSWORD_BCRYPT);
 
     try {
-        // Insertion dans la base
         $stmt = $pdo->prepare("INSERT INTO users (pseudo, email, password) VALUES (?, ?, ?)");
         $stmt->execute([$pseudo, $email, $hashedPassword]);
 
-        echo "<script>alert('Compte créé avec succès !'); window.location.href='/inscription-connexion/connexion/connexion.html';</script>";
+        // 2. CRUCIAL : Enregistrer les infos en session ICI
+        // C'est ce qui permettra au script.js de savoir qui est là
+        $_SESSION['id'] = $pdo->lastInsertId();
+        $_SESSION['pseudo'] = $pseudo;
+
+        echo "<script>alert('Bienvenue, Maitre Houblon ! Ton compte a été créé !'); window.location.href='/index.html';</script>";
+        
     } catch (PDOException $e) {
-        if ($e->getCode() == 23000) { // Erreur si l'email existe déjà
+        if ($e->getCode() == 23000) {
             echo "<script>alert('Cet email est déjà utilisé'); window.history.back();</script>";
         } else {
             echo "Erreur lors de l'inscription : " . $e->getMessage();

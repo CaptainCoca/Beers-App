@@ -1,12 +1,82 @@
-body { 
-    background-color: #fcfcfc; 
-    height: 100vh; 
+/* Casier Couleurs (Déclaration de variables CSS*/
+:root {
+    --or: #ffca3a;
+    --ambre: #d4a373;
+    --brune: #fcfcfc;
+    --mousse: #fefae0;
+    --bois-sombre: #2b1d12;
+}
+
+body {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1505075106905-fb052892c116?q=80&w=2070&auto=format&fit=crop');
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100vh;
+    margin: 0;
+}
+
+.app-container {
+    height: 100vh;
+}
+
+.wireframe-box {
+    background-color: rgba(26, 26, 26, 0.9);
+    border: 2px solid var(--ambre);
+    border-radius: 15px;
+    padding: 2.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
 .title {
-    color: #333;
+    color: var(--or) !important;
+    font-family: 'Georgia' serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
-.field .label {
-    color: #333;
+.label {
+    color: var(--mousse) !important;
+    font-weight: 500;
+}
+
+.input {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--ambre);
+    color: white !important;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.input:focus {
+    border-color: var(--or);
+    box-shadow: 0 0 10px rgba(255, 202, 58, 0.3);
+}
+
+.input::placeholder {
+    color: rgba(254, 250, 224, 0.5);
+}
+
+.button.is-dark {
+    background-color: var(--or);
+    color: var(--brune);
+    font-weight: bold;
+    text-transform: uppercase;
+    border: none;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.button.is-dark:hover {
+    background-color: var(--ambre);
+    color: white;
+    transform: translateY(-2px);
+}
+
+a.is-size-6 {
+    color: var(--ambre);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+a.is-size-6:hover {
+    color: var(--or);
 }

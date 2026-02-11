@@ -1,0 +1,207 @@
+/* Casier Couleurs (Déclaration de variables CSS*/
+:root {
+    --ambre: #ff73003a;
+    --noir-houblon: #1A1D23;
+    --mousse-blanche: #fcfcfc;
+    --malte-gris: #8e9aaf;
+    --dorée: #f2cc8f;
+}
+
+/* Forcer la page à ne pas défiler et à faire 100% de la hauteur */
+html, body {
+    min-height: 100%;
+    padding: 0%;
+    background-image: url(/Beers-App/Images/Background.png);
+    background-attachment: fixed;
+    background-size: cover;
+    font-family: 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Container principal en Flexbox vertical */
+.app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Oblige le site à faire 100% de la hauteur de l'écran */
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+/* Styles du Header */
+.header-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    border: 1px solid var(--noir-houblon);
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.header-box.dark {
+    height: 50px;
+    background-color: #1a1d23;
+    color: white;
+    font-size: 0.9rem;
+}
+
+.header-logo {
+    max-height: 100%; /* Pour laisser un peu d'espace autour */
+    width: auto;     /* Garde les proportions de l'image */
+    display: block;
+    border: 2px solid var(--noir-houblon); /* var choisi dans le casier */
+    border-radius: 8px ;
+    padding: 5px;
+    background-color: var(--ambre);
+}
+
+.header-box.light {
+    display: flex !important;
+    flex-direction: column !important; /* Met le titre en haut, le slogan en bas */
+    justify-content: center !important;
+    align-items: center !important;
+    height: auto !important; /* Permet à la boîte de s'agrandir si besoin */
+    min-height: 160px; /* Ajuste la hauteur selon tes goûts */
+    padding: 15px !important;
+    font-family: 'Special Elite', system-ui;
+    font-size: 4rem;
+    background-color: var(--ambre);
+    color: var(--noir-houblon);
+}
+
+.slogan {
+    font-size: 0.9rem; /* Plus petit pour ne pas voler la vedette au titre */
+    margin-top: 5px;
+    font-style: italic;
+    color: #1a1a1a; /* Couleur sombre pour bien lire sur le orange */ 
+}  
+
+/* Style bouton (Inscription / Connexion) */
+.buttons-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px; /* L'espace entre les deux boutons entourés */
+    background-color: var(--ambre) !important;
+    border: 1px solid var(--noir-houblon);
+    min-height: 160px !important;
+    border-radius: 8px 8px;
+}
+
+/* Les boutons entourés à l'intérieur */
+.inner-btn {
+    font-family: 'Almendra Display', serif;
+    font-size: 1.3rem !important;
+    color: var(--noir-houblon) !important;
+    text-decoration: none;
+    background-color: var(--dorée);
+    
+    /* Le détourage (l'entourage) */
+    border: 2px solid var(--noir-houblon);
+    border-radius: 6px; /* Coins légèrement arrondis comme sur ton dessin */
+    padding: 15px 35px !important; /* Espace entre le texte et sa bordure */
+    
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+/* Effet au survol pour que ça reste interactif */
+.inner-btn:hover {
+    background-color: var(--noir-houblon);
+    color: var(--dorée) !important;
+    transform: scale(1.05); 
+}
+
+/* Style des cartes de bière */
+.beer-card {
+    text-align: center;
+    padding: 15px;
+    transition: transform 0.2s;
+    background-color: rgba(255, 202, 58, 0.4);
+    border: 2px solid var(--noir-houblon);
+}
+
+.beer-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--dorée);
+}
+
+.beer-image-placeholder {
+    width: 100px;
+    height: 100px;
+    border: 2px solid var(--noir-houblon);
+    border-radius: 50%;
+    margin: 0 auto 15px;
+    background: #eee; /* Simulation d'image */
+}
+
+.beer-title {
+    font-family: 'Special Elite', cursive;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.beer-comment {
+    font-family: 'Special Elite', cursive; /* On reste sur le côté machine à écrire */
+    font-size: 0.85rem;
+    line-height: 1.2;
+    margin: 10px 0;
+    padding: 8px;
+    background-color: rgba(255, 255, 255, 0.2); /* Un léger fond pour le faire ressortir */
+    border-left: 3px solid var(--biere-ambre); /* Une petite barre sur le côté pour le style */
+    min-height: 50px; /* Pour que les cartes gardent la même taille même avec peu de texte */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-style: italic;
+    color: #333; /* Texte sombre pour la lisibilité si le fond est clair */
+}
+
+.wireframe-input {
+    border: 2px solid var(--noir-houblon) !important;
+}
+
+/* --- LE BOUTON AJOUTER --- */
+.btn-ajouter {
+    background-color: var(--biere-ambre) !important;
+    color: var(--noir-houblon) !important;
+    font-family: 'Special Elite', cursive;
+    font-weight: bold;
+    text-transform: uppercase;
+    border: 2px solid var(--noir-houblon) !important;
+    border-radius: 4px;
+    box-shadow: 0 4px 0px #b06d00; /* Effet 3D (ombre solide) */
+    transition: all 0.1s ease-in-out;
+    padding: 10px 25px !important;
+    height: auto !important;
+}
+
+.btn-ajouter:hover {
+    background-color: var(--biere-or) !important;
+    transform: translateY(2px); /* Il descend un peu au survol */
+    box-shadow: 0 2px 0px #b06d00;
+}
+
+.btn-ajouter:active {
+    transform: translateY(4px); /* S'enfonce quand on clique */
+    box-shadow: 0 0px 0px #b06d00;
+}
+
+/* Optionnel : petite animation de l'icône + */
+.btn-ajouter span {
+    display: inline-block;
+    transition: transform 0.3s;
+}
+
+.btn-ajouter:hover span {
+    transform: rotate(90deg);
+}
+
+/* Style du Footer */
+.custom-footer {
+    background-color: var(--noir-houblon);
+    padding: 1rem 0;
+    border-top: 1px solid #ddd;
+    font-size: 0.8rem;
+    color: var(--malte-gris);
+}

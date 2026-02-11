@@ -47,7 +47,7 @@
                                             <option value="4">⭐⭐⭐⭐☆ - Très Bonne</option>
                                             <option value="3">⭐⭐⭐☆☆ - Sympathique</option>
                                             <option value="2">⭐⭐☆☆☆ - Bof Bof</option>
-                                            <option value="1">⭐☆☆☆☆ - Mauvais Souvenir</option>
+                                            <option value="1">⭐☆☆☆☆ - Dla Merde</option>
                                         </select>
                                     </div>
                                 </div>

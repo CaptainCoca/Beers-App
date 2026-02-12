@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
+
+:root {
+    --biere-or: #f39c12;
+    --biere-ambre: #d35400;
+    --noir-houblon: #1a1a1a;
+    --parchemin: #f4ece1;
+}
+
+/* --- STYLE GÉNÉRAL --- */
+body {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                url('https://images.unsplash.com/photo-1504502350688-00f5d59bbdeb?q=80&w=2070&auto=format&fit=crop'); 
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: var(--parchemin);
+    font-family: 'Special Elite', cursive;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.wireframe-box {
+    background: rgba(0, 0, 0, 0.7) !important;
+    border: 2px solid var(--biere-ambre) !important;
+    border-radius: 8px !important;
+    box-shadow: 0 0 15px rgba(211, 84, 0, 0.2);
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 30px;
+}
+
+.title {
+    color: var(--biere-or) !important;
+    font-size: 2rem !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-bottom: 30px !important;
+}
+
+.label {
+    color: var(--biere-or) !important;
+    font-size: 1.1rem !important;
+    margin-bottom: 10px !important;
+}
+
+.input, .textarea, .select select {
+    background-color: rgba(48, 48, 48, 0.5) !important;
+    border: 1px solid var(--biere-ambre) !important;
+    color: white !important;
+    border-radius: 4px !important;
+    transition: all 0.3s ease;
+}
+
+.input:focus, .textarea:focus, .select select:focus {
+    border-color: var(--biere-or) !important;
+    box-shadow: 0 0 8px rgba(243, 156, 18, 0.4) !important;
+}
+
+/* --- AFFICHAGE IMAGE ACTUELLE --- */
+.field img {
+    border: 1px solid var(--biere-ambre);
+    border-radius: 4px;
+    max-height: 120px;
+    margin: 10px 0;
+    display: block;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+.file.has-name {
+    margin-top: 10px;
+    width: 100%;
+}
+
+/* Le bouton de gauche (Choisir/Changer) */
+.file-cta {
+    background-color: var(--biere-ambre) !important;
+    border: 2px solid var(--biere-ambre) !important;
+    border-radius: 4px 0 0 4px !important; /* Arrondi uniquement à gauche */
+    color: white !important;
+    font-family: 'Special Elite', cursive;
+    transition: all 0.3s ease;
+}
+
+.file-cta:hover {
+    background-color: var(--biere-or) !important;
+    border-color: var(--biere-or) !important;
+}
+
+/* Le cadre de droite (Nom du fichier) */
+.file-name {
+    font-family: 'Special Elite', cursive;
+    border: 2px solid var(--biere-ambre) !important;
+    border-radius: 0 4px 4px 0 !important; /* Arrondi uniquement à droite */
+    color: white !important;
+    max-width: none !important; /* Prend tout l'espace disponible */
+    display: flex;
+    align-items: center;
+}
+
+/* --- BOUTONS D'ACTION --- */
+.button.is-warning {
+    background-color: var(--biere-ambre) !important;
+    color: white !important;
+    border: none !important;
+    font-family: 'Special Elite', cursive;
+    padding: 0.5rem 2rem;
+    height: auto;
+}
+
+.button.is-warning:hover {
+    background-color: var(--biere-or) !important;
+    transform: scale(1.05);
+}
+
+.button.is-light {
+    background-color: transparent !important;
+    color: #888 !important;
+    border: 1px solid #444 !important;
+}
+
+.button.is-light:hover {
+    color: white !important;
+    border-color: #888 !important;
+}
+
+/* On s'assure que le select prend toute la largeur comme les inputs */
+.select, .select select {
+    width: 100%;
+}
+
+.file.has-name {
+    margin-top: 10px;
+    width: 100%;
+}
+
+/* La partie gauche (Le bouton "Changer l'image") */
+.file-cta {
+    background-color: rgba(48, 48, 48, 0.5) !important;
+    border: 2px solid var(--biere-ambre) !important;
+    border-radius: 4px 0 0 4px !important; /* Arrondi seulement à gauche */
+    color: white !important;
+    transition: all 0.3s ease;
+}
+
+.file-cta:hover {
+    background-color: var(--biere-or) !important;
+    border-color: var(--biere-or) !important;
+}
+
+/* La partie droite (Là où s'affiche le nom du fichier sélectionné) */
+.file-name {
+    font-family: 'Special Elite', cursive;
+    border: 2px solid var(--biere-ambre) !important;
+    border-left: none !important; /* Évite la double bordure avec le bouton */
+    color: var(--parchemin) !important;
+    background-color: rgba(0, 0, 0, 0.4) !important; /* Fond sombre semi-transparent */
+    border-radius: 0 4px 4px 0 !important; /* Arrondi seulement à droite */
+    max-width: none !important; /* Permet d'occuper l'espace nécessaire */
+    display: flex;
+    align-items: center;
+}
+
+/* Style de l'image actuelle juste au-dessus pour la cohérence */
+.current-beer-img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border: 2px solid var(--biere-ambre);
+    border-radius: 8px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+

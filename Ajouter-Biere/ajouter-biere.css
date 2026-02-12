@@ -112,3 +112,17 @@ body {
     border-color: var(--biere-or);
     background: rgba(0, 0, 0, 0.9);
 }
+
+ .file-name {
+    font-family: 'Special Elite', cursive;
+    border: 2px solid var(--biere-ambre) !important;
+    border-left: none !important;
+    color: white !important;
+    background-color: #333 !important;
+}
+
+.file-cta {
+    border: 2px solid var(--biere-ambre) !important;
+    border-radius: 4px 0 0 4px !important;
+
+}

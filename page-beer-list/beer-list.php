@@ -107,7 +107,16 @@ try {
                             <div class="beer-comment">
                                 "<?php echo htmlspecialchars($beer['description']); ?>"
                             </div>
-                    
+
+                            <div class="card-actions">
+                                <a href="../Modifier-Biere\modifier-biere.php?id=<?php echo $beer['id']; ?>" class="btn-action btn-edit">
+                                    Modifier
+                                </a>
+                                <a href="/Beers-App/Supprimer-Biere\supprimer-biere.php?id=<?php echo $beer['id']; ?>" class="btn-action btn-delete"
+                                onclick="return confirm('Es tu sûr de vouloir oublier cette bière ?');">
+                                Supprimer
+                                </a>
+                            </div>
                         </div>
                     </div>
                 <?php endforeach; ?>

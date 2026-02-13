@@ -1,25 +1,7 @@
--- --------------------------------------------------------
--- Hôte:                         127.0.0.1
--- Version du serveur:           8.4.3 - MySQL Community Server - GPL
--- SE du serveur:                Win64
--- HeidiSQL Version:             12.8.0.6908
--- --------------------------------------------------------
+/* Je te conseille de le mettre dans ta BDD si tu veux voir la page publique*/
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET NAMES utf8 */;
-/*!50503 SET NAMES utf8mb4 */;
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+INSERT INTO `beers_table` (`id`, `user_id`, `beer_name`, `rating`, `description`, `image_path`, `created_at`, `is_public`) VALUES
+	(12, 1, 'Pélican', 3, 'Euh... je ne sais quoi dire, mais ce texte permet de voir si j\'ai bien fait mon travail car je suis tellement intelligent, IM BETTER !', '1770909042_7716dd4d7d.png', '2026-02-12 12:06:40', 1),
+	(14, 1, 'Skoll', 5, 'Probablement la meilleur des cannettes !', '1770909632_a715bb87e1.png', '2026-02-12 15:20:32', 1),
+	(16, 1, 'Mega Demon', 2, 'C\'est une bière ou un alcool fort ??', '1770910418_60770526ef.png', '2026-02-12 15:33:38', 1);
 
--- Listage des données de la table maitre_houblon.beers_table : ~1 rows (environ)
-INSERT INTO `beers_table` (`id`, `user_id`, `beer_name`, `rating`, `description`, `image_path`, `created_at`) VALUES
-	(2, 1, 'Pélican', 3, 'Test', '1770821668_9ee08cb016.png', '2026-02-11 14:54:28');
-
-/*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
-/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
-/*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40111 SET SQL_NOTES=IFNULL(@OLD_SQL_NOTES, 1) */;

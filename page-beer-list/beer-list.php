@@ -26,6 +26,7 @@ try {
 } catch (PDOException $e) {
     die("Erreur : " . $e->getMessage());
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -117,6 +118,13 @@ try {
                                 Supprimer
                                 </a>
                             </div>
+
+                            <div class="field mt-2">
+                                <label class="checkbox label">
+                                    <input type="checkbox" class="public-toggle" data-beer-id="<?php echo $beer['id']; ?>;"
+                                    <?php echo ($beer['is_public'] == 1) ? 'checked' : ''; ?>> Partager (Public)
+                                </label>
+                            </div>
                         </div>
                     </div>
                 <?php endforeach; ?>
@@ -124,7 +132,7 @@ try {
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="/Beers-App/page-beer-list\visibility.js"></script>
 
 </body>
 </html>

@@ -144,7 +144,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                     <textarea class="textarea wireframe-input" name="description" placeholder="Note de dégustation, amertume, ou anecdote rigolote..." rows="4"></textarea>
                                 </div>
                             </div>
-
+                            
                             <div class="control mt-6">
                                 <button type="submit" class="button is-dark is-fullwidth is-large inner-btn">Enregistrer dans mon grimoire</button>
                             </div>

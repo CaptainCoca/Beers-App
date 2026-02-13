@@ -11,7 +11,7 @@
 html, body {
     min-height: 100%;
     padding: 0%;
-    background-image: url(../Beers-App/Images/Background.png);
+    background-image: url(/Beers-App/Images/Background.png);
     background-attachment: fixed;
     background-size: cover;
     font-family: 'Segoe UI', Roboto, sans-serif;
@@ -111,158 +111,130 @@ html, body {
     transform: scale(1.05); 
 }
 
-/* Gestion de la grille de contenu */
-.main-content {
-    flex: 1; 
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
-}
-
-.center-grid {
-    display: flex;
-    flex-direction: column;
-}
-
-.h-100 {
-    height: 100%;
-}
-
-/* Les Boîtes */
-.wireframe-box {
-    border: 1px solid #333;
-    border-radius: 25px;
-    background: white;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    text-align: center;
-}
-
-.wireframe-box.button {
-    height: 100%;
+/* --- TOP BAR (Titre & Recherche) --- */
+.top-bar-grimoire {
     width: 100%;
-    white-space: normal;
-    border: 1px solid #333;
-    border-radius: 25px;
-    display: flex;
+    padding: 10px 0;
 }
 
-.full-height {
-    height: 100%;
-}
-
-.box-label {
-    color: #8e9aaf;
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-
-/* Bibliothèque spécifique */
-.library-box {
-    background-image: linear-gradient(rgb(255, 215, 163, 0.8), rgba(109, 62, 7, 0.8)), url(../Beers-App/Images/BilbliothèqueDeBiere.png) !important;
-    background-size: cover !important;
-    background-position: center !important;
-    height: 100%;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-start;
-    text-align: left;
-    border: 2px solid var(--noir-houblon) !important;
-    border-radius: 15px !important;
-    padding: 25px !important;
-    display: flex;
-}
-
-.library-box h3 {
-    font-family: 'Almendra Display', serif;
-    color: var(--noir-houblon) !important;
-    font-size: 2rem;
-    border-bottom: 1px solid var(--noir-houblon);
-    padding-bottom: 10px;
-}
-
-.library-box p {
-    color: var(--noir-houblon) !important;
-}
-
-.align-self-end {
-    background-color: var(--dorée) !important;
-    color: var(--noir-houblon) !important;
-    font-family: 'Special Elite', cursive;
-    font-weight: bold;
-    border: 2px solid var(--noir-houblon) !important;
+.header-side-box {
+    border: 2px solid var(--noir-houblon); /* Bordure noire comme ton dessin */
+    padding: 15px 25px;
+    background-color: var(--ambre);
     border-radius: 5px;
-    margin-top: 20px;
-    padding: 10px 20px;
-    align-self: flex-end;
 }
 
-.align-self-end:hover {
+.header-side-box .title {
+    font-family: 'Special Elite', cursive;
+    color: var(--noir-houblon) !important;
+    margin-bottom: 5px !important;
+}
+
+.slogan-public {
+    font-family: 'Special Elite', cursive;
+    color: var(--noir-houblon) !important;
+}
+
+/* Le conteneur global */
+.search-box-wrapper .field.has-addons {
+    border: 3px solid var(--noir-houblon) !important; 
+    background-color: var(--ambre) !important;
+    border-radius: 50px !important; 
+    overflow: hidden !important;
+    display: flex !important;
+    padding: 0 !important;
+    height: 50px !important; /* Fixe une hauteur pour que tout soit aligné */
+}
+
+/* Neutralise les conteneurs intermédiaires de Bulma */
+.search-box-wrapper .control {
+    margin: 0 !important;
+    padding: 0 !important;
+    height: 100% !important;
+    display: flex !important;
+}
+
+/* L'input */
+.input-custom-search {
+    border: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    padding: 0 20px !important;
+    height: 100% !important;
+    width: 100%;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.input-custom-search::placeholder {
+    color: var(--noir-houblon);
+}
+
+/* Le bouton */
+.inner-btn-search {
+    background-color: var(--dorée) !important;
+    border: none !important;
+    border-left: 3px solid var(--noir-houblon) !important;
+    padding: 0 30px !important;
+    height: 100% !important;
+    font-weight: bold;
+    font-family: 'Special Elite', cursive;
+    color: var(--noir-houblon);
+    cursor: pointer;
+    border-radius: 0 !important;
+    white-space: nowrap;
+}
+
+.inner-btn-search:hover {
     background-color: var(--noir-houblon) !important;
     color: var(--dorée) !important;
 }
 
-.nav-item {
-    font-size: 0.9rem;
-    color: #8e9aaf;
-}
-
-/* Ajustement Bulma pour que les colonnes internes prennent la hauteur (Casse couilles ce Bulma de mes deux) */
-.is-flex-grow-2 {
-    flex-grow: 2 !important;
-}
-
-/* Style pour l'affichage du pseudo dans le header */
-.user-display {
-    padding: 5px 15px;
-    background: rgba(0, 0, 0, 0.2);
-    border-radius: 8px;
-    border: 1px solid var(--biere-ambre);
-}
-
-.inner-btn {
-    /* Garde ton style actuel pour les boutons */
-    text-decoration: none;
-    padding: 5px 10px;
+/* --- LISTE DES BIÈRES (Full Width) --- */
+.beer-list-item {
+    display: flex;
+    background-color: rgba(255, 233, 171, 0.3);
+    border: 2px solid var(--noir-houblon); /* Grosse bordure comme maj.png */
     border-radius: 5px;
-    font-size: 0.9rem;
+    margin-bottom: 30px;
+    min-height: 180px;
 }
 
-/* Bouton Avis-Public */
+.beer-list-image {
+    flex: 0 0 150px;
+    border-right: 2px solid var(--noir-houblon);
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-.grimoire-btn {
-    background-image: linear-gradient(rgb(255, 215, 163, 0.8), rgba(109, 62, 7, 0.4)), url(../Beers-App/Images/TrinqueAvis.png) !important;
-    background-size: cover !important;
-    background-position: center !important;
-    color: var(--noir-houblon);
-    border: 2px solid var(--noir-houblon);
+.beer-list-image img {
+    max-height: 150px;
+    object-fit: contain;
+}
+
+.beer-list-content {
     font-family: 'Special Elite', cursive;
-    font-weight: bold;
-    text-transform: uppercase;
-    box-shadow: 6px 6px 0px var(--noir-houblon);
-    transition: all 0.2s ease-in-out;
-    height: auto;
+    flex: 1;
     padding: 20px;
-}
-
-.grimoire-btn:hover {
-    transform: translate(-3px, -3px);
-    box-shadow: 9px 9px 0 var(--noir-houblon);
     color: var(--noir-houblon);
 }
 
-.grimoire-btn:active {
-    transform: translate(3px -3px);
-    box-shadow: 2px 2px 0 var(--noir-houblon);
+.beer-name {
+    font-size: 2.5rem;
+    font-family: 'Special Elite', cursive;
+    margin-bottom: 5px;
 }
 
-/* Style du Footer */
-.custom-footer {
-    background-color: var(--noir-houblon);
-    padding: 1rem 0;
-    border-top: 1px solid #ddd;
-    font-size: 0.8rem;
-    color: var(--malte-gris);
+.author-tag {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    font-family: 'Special Elite', cursive;
+    color: var(--noir-houblon);
+}
+
+.quote {
+    margin-top: 15px;
+    font-size: 1rem;
+    line-height: 1.4;
 }

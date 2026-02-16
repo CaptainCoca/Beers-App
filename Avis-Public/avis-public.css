@@ -98,7 +98,7 @@ html, body {
     /* Le détourage (l'entourage) */
     border: 2px solid var(--noir-houblon);
     border-radius: 6px; /* Coins légèrement arrondis comme sur ton dessin */
-    padding: 15px 35px !important; /* Espace entre le texte et sa bordure */
+    padding: 15px 20px !important; /* Espace entre le texte et sa bordure */
     
     transition: all 0.3s ease;
     display: inline-block;
@@ -215,9 +215,12 @@ html, body {
 
 .beer-list-content {
     font-family: 'Special Elite', cursive;
-    flex: 1;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
     padding: 20px;
     color: var(--noir-houblon);
+    position: relative;
 }
 
 .beer-name {
@@ -228,13 +231,149 @@ html, body {
 
 .author-tag {
     font-size: 1.1rem;
-    margin-bottom: 10px;
+    margin-bottom: 5px !important;
     font-family: 'Special Elite', cursive;
     color: var(--noir-houblon);
 }
 
+.beer-rating {
+    margin-bottom: 2px !important; /* Presque collé au texte */
+    line-height: 1; /* Évite que la ligne d'étoiles ne soit trop haute */
+}
+
+.beer-footer-row {
+    display: flex;
+    align-items: flex-end; /* Garde les boutons alignés sur le bas du texte */
+    justify-content: flex-start; /* Aligne tout à gauche par défaut pour réduire l'écart */
+    gap: 30px; /* C'est ici que tu contrôles l'espace précis entre texte et boutons */
+    margin-top: 10px;
+}
+
 .quote {
+    max-width: 60%; /* Empêche le texte de s'étaler trop loin à droite */
+    font-style: italic;
+    flex-shrink: 1; /* Permet au texte de se réduire si besoin */
+}
+
+.beer-actions {
+    display: flex;
+    flex-direction: row; /* Boutons l'un à côté de l'autre */
+    gap: 10px;
+    margin-left: auto; /* Optionnel : si tu veux quand même qu'ils touchent le bord droit de la carte */
+}
+
+.action-btn {
+    background: white;
+    border: 2px solid var(--noir-houblon);
+    border-radius: 8px;
+    padding: 8px 15px;
+    font-family: 'Special Elite',cursive;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.1s ease;
+    box-shadow: 3px 3px 3px var(--noir-houblon);
+}
+
+.like-btn:hover {
+    background-color: #ffe08a;
+    transform: translate(-1px, -1px);
+    box-shadow: 4px 4px 0px var(--noir-houblon);
+}
+
+.like-btn.active {
+    background-color: var(--dorée) !important;
+    border-color: var(--noir-houblon) !important;
+    color: var(--noir-houblon) !important;
+    box-shadow: 1px 1px 0px var(--noir-houblon) !important; /* L'ombre s'écrase */
+    transform: translateY(2px); /* Le bouton reste légèrement enfoncé */
+}
+
+.comment-btn:hover {
+    background-color: var(--malte-gris);
+    transform: translate(-1px, -1px);
+    box-shadow: 4px 4px 0px var(--noir-houblon);
+}
+
+.action-btn:active {
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0px var(--noir-houblon);
+}
+
+.action-btn .icon {
+    font-size: 1.2rem;
+}
+
+.action-btn .count {
+    font-size: 0.9rem;
+    color: var(--noir-houblon);
+}
+
+/* Conteneur des commentaires */
+.comments-container {
     margin-top: 15px;
-    font-size: 1rem;
-    line-height: 1.4;
+    padding: 15px;
+    background-color: rgba(255, 252, 240, 0.6); 
+    border-radius: 8px;
+    border-left: 3px solid #d4a373; 
+    display: none; 
+}
+
+/* La ligne de séparation */
+.comment-divider {
+    background-color: #d4a373;
+    height: 1px;
+    margin: 10px 0;
+    opacity: 0.3;
+}
+
+/* Style de la liste des messages */
+.comments-list {
+    max-height: 200px; 
+    overflow-y: auto; 
+    margin-bottom: 15px;
+}
+
+/* Style d'un commentaire individuel */
+.comment-item {
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px dashed #ccc;
+}
+
+.comment-item strong {
+    color: #8b4513; 
+    font-size: 0.9em;
+}
+
+.comment-item p {
+    font-size: 0.85em;
+    color: #333;
+}
+
+/* Le champ de saisie personnalisé */
+.input-custom-comment {
+    background-color: #fff9eb !important;
+    border: 1px solid #d4a373 !important;
+    font-family: 'Special Elite', cursive !important;
+    color: #5d4037 !important;
+}
+
+.input-custom-comment::placeholder {
+    color: #a1887f;
+    opacity: 0.7;
+}
+
+/* Petit effet sur le bouton envoyer */
+.send-comment {
+    background-color: #d4a373 !important;
+    color: white !important;
+    border: none !important;
+    transition: background 0.3s;
+}
+
+.send-comment:hover {
+    background-color: #bc8a5f !important;
 }

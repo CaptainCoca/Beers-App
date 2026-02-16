@@ -14,10 +14,8 @@ try {
 }
 
 $sql = "SELECT b.*, u.pseudo FROM beers_table b JOIN users u ON b.user_id = u.id WHERE b.is_public = 1 ORDER BY b.id DESC";
-
 $stmt = $pdo->query($sql);
 $public_beers = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
 ?>
 
 <!DOCTYPE html>
@@ -43,6 +41,7 @@ $public_beers = $stmt->fetchAll(PDO::FETCH_ASSOC);
             </div>
             <div class="column is-4">
                 <div id="auth-buttons" class="header-box buttons-container">
+                    <a href="/Beers-App/page-beer-list\beer-list.php" class="inner-btn">Mes bières</a>
                     <a href="/Beers-App/index.html" class="inner-btn">Retour à l'accueil</a>
                 </div>
             </div>
@@ -73,6 +72,11 @@ $public_beers = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         <div class="beers-list-fullwidth">
             <?php foreach ($public_beers as $beer): ?>
+                <?php 
+                    $stmtComments = $pdo->prepare("SELECT c.id, c.content, c.user_id, c.beer_id, u.pseudo FROM comments c JOIN users u ON c.user_id = u.id WHERE c.beer_id = ? ORDER BY c.created_at ASC");
+                    $stmtComments->execute([$beer['id']]);
+                    $comments = $stmtComments->fetchAll();
+                ?>
                 <div class="beer-list-item">
                     <div class="beer-list-image">
                         <img src="/Beers-App/Ajouter-Biere/uploads/<?= htmlspecialchars($beer['image_path']) ?>" alt="Bière">
@@ -81,19 +85,72 @@ $public_beers = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     <div class="beer-list-content">
                         <h2 class="beer-name"><?= htmlspecialchars($beer['beer_name']) ?></h2>
                         <p class="author-tag">Partagé par : <strong><?= htmlspecialchars($beer['pseudo']) ?></strong></p>
-                    
+    
                         <div class="beer-rating">
                             <?= str_repeat('⭐', $beer['rating']) ?>
                         </div>
-                    
-                        <div class="quote">
-                            <?= nl2br(htmlspecialchars($beer['description'])) ?>
+    
+                        <div class="beer-footer-row">
+                            <div class="quote">
+                                <?= nl2br(htmlspecialchars($beer['description'])) ?>
+                            </div>
+
+                            <div class="beer-actions">
+                                <button class="action-btn like-btn" data-id="<?= $beer['id'] ?>">
+                                    <span class="icon">🍺</span> 
+                                    <span class="count"><?= $beer['likes'] ?></span>
+                                </button>
+                                <button class="action-btn comment-btn" data-id="<?= $beer['id'] ?>">
+                                    <span class="icon">📜</span> 
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="comments-container" id="comments-<?= $beer['id'] ?>">
+                            <hr class="comment-divider">
+                            <div class="comments-list">
+                                <?php if (empty($comments)): ?>
+                                    <p class="is-size-7 has-text-black">Aucun parchemin laissé pour le moment...</p>
+                                <?php else: ?>
+                                    <?php foreach ($comments as $com): ?>
+                                        <div class="comment-item" id="comment-block-<?= $com['id'] ?>">
+                                            <strong><?= htmlspecialchars($com['pseudo']) ?></strong>
+                                            <p><?= nl2br(htmlspecialchars($com['content'])) ?></p>
+
+                                            <?php if (isset($_SESSION['user_id']) && $_SESSION['user_id'] == $com['user_id']): ?>
+                                                <div class="comment-actions mt-1">
+                                                    <button class="is-ghost p-0 mr-2 edit-comment-btn" data-id="<?= $com['id'] ?>">Modifier</button>
+                                                    <button class="is-ghost p-0 has-text-danger delete-comment-btn" data-id="<?= $com['id'] ?>">Supprimer</button>
+                                                </div>
+                                            <?php endif; ?>
+                                        </div>
+                                    <?php endforeach; ?>
+                                <?php endif; ?>
+                            </div>
+
+                            <?php if(isset($_SESSION['user_id'])): ?>
+                                <div class="comment-form-wrapper mt-3">
+                                    <div class="field has-addons">
+                                        <div class="control is-expanded">
+                                            <input class="input is-small comment-input" type="text" placeholder="Ecrire un parchemin..." data-beer-id="<?= $beer['id'] ?>">
+                                        </div>
+                                        <div class="control">
+                                            <button class="button is-small is-warning send-comment" data-beer-id="<?= $beer['id'] ?>">Envoyer</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            <?php else: ?>
+                                <p class="is-size-7 has-text-danger mt-2">Connectez-vous pour laisser un parchemin.</p>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>
             <?php endforeach; ?>
             </div>
         </div>
+
+        <script src="/Beers-App/Avis-Public\avis-public.js"></script>
+
 </body>
 </html>
 

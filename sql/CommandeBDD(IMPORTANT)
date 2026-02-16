@@ -1,3 +1,0 @@
-/* Il faudra l'ajouter dans la table beers_table*/
-
-ALTER TABLE beers_table ADD COLUMN is_public TINYINT(1) DEFAULT 0;

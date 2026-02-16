@@ -52,6 +52,7 @@ try {
             </div>
             <div class="column is-4">
                 <div id="auth-buttons" class="header-box buttons-container">
+                    <a href="/Beers-App/Avis-Public\avis-public.php" class="inner-btn">Grimoire Communautaire</a>
                     <a href="/Beers-App/index.html" class="inner-btn">Retour à l'accueil</a>
                 </div>
             </div>

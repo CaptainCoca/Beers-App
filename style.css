@@ -258,6 +258,35 @@ html, body {
     box-shadow: 2px 2px 0 var(--noir-houblon);
 }
 
+/* Bouton Taverne */
+
+.taverne-btn {
+    background-image: linear-gradient(rgb(255, 215, 163, 0.8), rgba(109, 62, 7, 0.4)), url(/Beers-App/Images/BarBackground.png) !important;
+    background-size: cover !important;
+    background-position: center !important;
+    color: var(--noir-houblon);
+    border: 2px solid var(--noir-houblon);
+    font-family: 'Special Elite', cursive;
+    font-weight: bold;
+    text-transform: uppercase;
+    box-shadow: 6px 6px 0px var(--noir-houblon);
+    transition: all 0.2s ease-in-out;
+    height: auto;
+    padding: 20px;
+}
+
+.taverne-btn:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 9px 9px 0 var(--noir-houblon);
+    color: var(--noir-houblon);
+}
+
+.taverne-btn:active {
+    transform: translate(3px -3px);
+    box-shadow: 2px 2px 0 var(--noir-houblon);
+}
+
+
 /* Style du Footer */
 .custom-footer {
     background-color: var(--noir-houblon);

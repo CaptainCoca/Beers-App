@@ -106,8 +106,13 @@ try {
                                 ?>
                             </div>
 
-                            <div class="beer-comment">
-                                "<?php echo htmlspecialchars($beer['description']); ?>"
+                            <div class="beer-comment-container">
+                                <div class="beer-comment text-collapsed">
+                                    "<?php echo htmlspecialchars($beer['description']); ?>"
+                                </div>
+                                <?php if (strlen($beer['description']) > 100): ?>
+                                    <button class="expand-btn">▼</button>
+                                <?php endif; ?>
                             </div>
 
                             <div class="card-actions">

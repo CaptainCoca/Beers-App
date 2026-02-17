@@ -22,4 +22,15 @@ CREATE TABLE comments (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-
+/* Nouvelle table pour les bars */
+CREATE TABLE IF NOT EXISTS bars_table (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    bar_name VARCHAR(255) NOT NULL,
+    address VARCHAR(255) NOT NULL,
+    rating INT NOT NULL,
+    description TEXT,
+    image_path VARCHAR(255),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);

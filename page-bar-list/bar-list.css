@@ -1,0 +1,372 @@
+/* Casier Couleurs (Déclaration de variables CSS*/
+:root {
+    --ambre: #ff73003a;
+    --noir-houblon: #1A1D23;
+    --mousse-blanche: #fcfcfc;
+    --malte-gris: #8e9aaf;
+    --dorée: #f2cc8f;
+}
+
+/* Forcer la page à ne pas défiler et à faire 100% de la hauteur */
+html, body {
+    min-height: 100%;
+    padding: 0%;
+    background-image: url(/Beers-App/Images/Background.png);
+    background-attachment: fixed;
+    background-size: cover;
+    font-family: 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Container principal en Flexbox vertical */
+.app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Oblige le site à faire 100% de la hauteur de l'écran */
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+/* Styles du Header */
+.header-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    border: 1px solid var(--noir-houblon);
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.header-box.dark {
+    height: 50px;
+    background-color: #1a1d23;
+    color: white;
+    font-size: 0.9rem;
+}
+
+.header-logo {
+    max-height: 100%; /* Pour laisser un peu d'espace autour */
+    width: auto;     /* Garde les proportions de l'image */
+    display: block;
+    border: 2px solid var(--noir-houblon); /* var choisi dans le casier */
+    border-radius: 8px ;
+    padding: 5px;
+    background-color: var(--ambre);
+}
+
+.header-box.light {
+    display: flex !important;
+    flex-direction: column !important; /* Met le titre en haut, le slogan en bas */
+    justify-content: center !important;
+    align-items: center !important;
+    height: auto !important; /* Permet à la boîte de s'agrandir si besoin */
+    min-height: 160px; /* Ajuste la hauteur selon tes goûts */
+    padding: 15px !important;
+    font-family: 'Special Elite', system-ui;
+    font-size: 4rem;
+    background-color: var(--ambre);
+    color: var(--noir-houblon);
+}
+
+.slogan {
+    font-size: 0.9rem; /* Plus petit pour ne pas voler la vedette au titre */
+    margin-top: 5px;
+    font-style: italic;
+    color: #1a1a1a; /* Couleur sombre pour bien lire sur le orange */ 
+}  
+
+/* Style bouton (Inscription / Connexion) */
+.buttons-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px; /* L'espace entre les deux boutons entourés */
+    background-color: var(--ambre) !important;
+    border: 1px solid var(--noir-houblon);
+    min-height: 160px !important;
+    border-radius: 8px 8px;
+}
+
+/* Les boutons entourés à l'intérieur */
+.inner-btn {
+    font-family: 'Almendra Display', serif;
+    font-size: 1.3rem !important;
+    color: var(--noir-houblon) !important;
+    text-decoration: none;
+    background-color: var(--dorée);
+    
+    /* Le détourage (l'entourage) */
+    border: 2px solid var(--noir-houblon);
+    border-radius: 6px; /* Coins légèrement arrondis comme sur ton dessin */
+    padding: 15px 20px !important; /* Espace entre le texte et sa bordure */
+    
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+/* Effet au survol pour que ça reste interactif */
+.inner-btn:hover {
+    background-color: var(--noir-houblon);
+    color: var(--dorée) !important;
+    transform: scale(1.05); 
+}
+
+.carnet-container {
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+    perspective: 1000px;
+    color: var(--noir-houblon);
+}
+
+.carnet-book {
+    display: flex;
+    width: 100%;
+    max-width: 1000px;
+    min-height: 600px;
+    background: #ffe3b7;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    position: relative;
+    color: var(--noir-houblon);
+    box-shadow: 
+        /* Ombre portée classique sous le livre */
+        0 20px 40px rgba(0, 0, 0, 0.4),
+        /* Tranche de pages à GAUCHE */
+        -2px 0 0 #fcfcfc, -3px 0 0 #d1d1d1, 
+        -5px 0 0 #fcfcfc, -6px 0 0 #d1d1d1,
+        -8px 0 0 #fcfcfc, -9px 0 0 #d1d1d1,
+        -11px 0 0 #fcfcfc, -12px 0 2px rgba(0,0,0,0.2),
+        /* Tranche de pages à DROITE */
+        2px 0 0 #fcfcfc, 3px 0 0 #d1d1d1, 
+        5px 0 0 #fcfcfc, 6px 0 0 #d1d1d1,
+        8px 0 0 #fcfcfc, 9px 0 0 #d1d1d1,
+        11px 0 0 #fcfcfc, 12px 0 2px rgba(0,0,0,0.2);
+    margin: 0 10px;
+}
+
+.carnet-book::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.carnet-title, h2 {
+    font-family: 'Special Elite', cursive;
+    color: #1a1d23 !important;
+    border-bottom: 2px solid #a89078;
+    margin-bottom: 10px;
+}
+
+.page {
+    flex: 1;
+    padding: 40px;
+    position: relative;
+    font-family: 'Special Elite', cursive;
+}
+
+.page-left {
+    background: linear-gradient(to left, transparent, rgba(0,0,0,0.02));
+    border-radius: 15px 0 0 15px;
+    border-right: 1=x solid rgba(0, 0, 0, 0.05);
+}
+
+.page-right {
+    background: linear-gradient(to right, transparent, rgba(0,0,0,0.02));
+    border-radius: 15px 0 0 15px;
+}
+
+.bar-entry {
+    list-style: none;
+    padding: 10px 0;
+    border-bottom: 1px dashed #dcd0b9;
+    cursor: pointer;
+    font-family: 'Special Elite', cursive;
+    transition: all 0.2s;
+}
+
+/* Les liens dans la liste de gauche (Mes Explorations) */
+.bar-entry a {
+    color: #4a3728 !important;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.bar-entry a:hover {
+    color: #d48a28 !important;
+}
+
+.btn-entry:hover {
+    color: var(--ambre);
+    transform: translateX(5px);
+}
+/* --- STYLE DU BOUTON PLUME (L'AJOUT) --- */
+
+.btn-plume {
+    display: block;
+    width: 100%;
+    margin-top: 20px;
+    padding: 15px;
+    background-color: transparent;
+    border: 2px solid #a89078; /* Couleur cuir/bois */
+    color: #4a3728; /* Brun foncé */
+    font-family: 'Special Elite', cursive;
+    font-size: 1.1rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+    text-decoration: none !important; /* Pour le lien <a> */
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-plume:hover {
+    background-color: #f4ece2; /* Fond crème au survol */
+    border-color: #d48a28; /* Ambre */
+    color: #d48a28;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.btn-plume:active {
+    transform: translateY(0);
+}
+
+/* Optionnel : Ajoute un petit icône de plume avant le texte via CSS */
+.btn-plume::before {
+    content: "🖋️ ";
+    font-size: 1.2rem;
+}
+
+/* --- STYLE DU FORMULAIRE "CARNET" --- */
+.input-manuscrit {
+    background: rgba(0, 0, 0, 0.05) !important; /* Un léger gris pour voir où on tape */
+    border: none !important;
+    border-bottom: 2px dashed var(--noir-houblon) !important; /* Ligne de cahier bien visible */
+    color: var(--noir-houblon) !important; /* Texte écrit en brun très foncé */
+    font-family: 'Special Elite', cursive;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+}
+
+.input-manuscrit::placeholder {
+    color: var(--noir-houblon);
+}
+
+/* Pour que le texte qu'on tape soit bien visible */
+.input-manuscrit:focus {
+    background: rgba(0, 0, 0, 0.08) !important;
+    border-bottom: 2px solid #d48a28 !important;
+}
+
+/* Ajustement pour le menu déroulant (Select) */
+select.input-manuscrit {
+    cursor: pointer;
+    appearance: none; /* Enlever la flèche par défaut pour le style */
+}
+
+/* Boutons adaptés au carnet */
+.btn-ajouter {
+    background-color: #d48a28 !important;
+    color: white !important;
+    border: none;
+    padding: 12px;
+    font-family: 'Special Elite', cursive;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 4px;
+}
+
+
+.btn-ajouter:hover {
+    background-color: #a86b1a !important;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.carnet-title {
+    font-size: 1.5rem; 
+    border-bottom: 2px solid var(--noir-houblon); 
+    padding-bottom: 10px;
+}
+
+.btn-ajouter {
+    display: block !important;
+    margin: 0 auto !important; /* La botte secrète pour le centrage horizontal */
+    width: fit-content !important;
+    min-width: 250px;
+    padding: 12px 30px;
+    background-color: #d48a28 !important;
+    color: white !important;
+    border: none;
+    font-family: 'Special Elite', cursive;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+/* --- STYLE DU BOUTON ABANDONNER (is-text) --- */
+
+.button.is-text.is-fullwidth {
+    background: transparent !important;
+    border: none !important;
+    color: var(--noir-houblon) !important; /* Gris malte pour rester discret */
+    font-family: 'Special Elite', cursive;
+    text-decoration: none !important;
+    font-size: 0.9rem;
+    padding: 10px;
+    margin-top: 5px;
+    transition: color 0.3s ease;
+    display: block;
+    text-align: center;
+}
+
+.button.is-text.is-fullwidth:hover {
+    color: #e63946 !important; /* Un rouge discret pour l'annulation */
+    background-color: transparent !important;
+    font-weight: bold;
+}
+
+.form-actions {
+    display: flex !important;
+    flex-direction: column !important; /* Empile le bouton et le lien */
+    align-items: center !important;    /* Centre horizontalement dans la page */
+    justify-content: center !important;
+    width: 100% !important;
+    margin-top: 30px;
+    gap: 15px;
+}
+
+.btn-delete {
+    display: inline-block;
+    margin-top: 20px;
+    color: #a02020 !important;
+    font-size: 0.8rem;
+    text-decoration: underline;
+    cursor:pointer;
+    font-family: 'Special Eite' cursive;
+    transition: 0.3s;
+}
+
+.btn-delete:hover {
+    color: #ff0000 !important;
+    transform: scale(1.05);
+}
+
+.details-content {
+    margin-top: 5px;
+}

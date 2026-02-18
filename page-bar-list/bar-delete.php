@@ -21,8 +21,8 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
     $query->execute([$id]);
     $bar = $query->fetch();
 
-    if ($bar && $bar['image_path'] != 'default.jpg') {
-        $file = "uploads/bars/" . $bar['image_path'];
+    if ($bar && $bar['image_path'] != 'default.png') {
+        $file = "../page-bar-list\uploadsBars/" . $bar['image_path'];
         if (file_exists($file)) {
             unlink($file); // Supprime le fichier physique
         }

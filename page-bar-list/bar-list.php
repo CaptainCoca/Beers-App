@@ -46,7 +46,7 @@ try {
     <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
     <title>Le Carnet d'Exploration - Maître Houblon</title>
 </head>
-<body>      
+<body>                                      
     <div class="app-container">
         <header class="columns is-mobile is-variable is-2 mb-4">
             <div class="column is-2">
@@ -59,7 +59,7 @@ try {
             </div>
             <div class="column is-4">
                 <div class="header-box buttons-container">
-                    <a href="/Beers-App/page-beer-list/beer-list.php" class="inner-btn">Mes bières</a>
+                    <a href="/Beers-App/Avis-Public\avis-public.php" class="inner-btn">Grimoire Communautaire</a>
                     <a href="/Beers-App/index.html" class="inner-btn">Retour à l'Accueil</a>
                 </div>
             </div>
@@ -107,7 +107,20 @@ try {
 
                             <div class="details-content">
                                 <p><strong>📍 Localisation :</strong> <?php echo html_entity_decode(htmlspecialchars($selectedBar['address'])); ?></p>
-                                <p><strong>⭐ Note du Maître :</strong> <?php echo $selectedBar['rating']; ?>/5</p>
+                                <div class="note-stars">
+                                    <span class="label-note">⭐ Note du Maître :</span>
+                                    <?php
+                                    $note = $selectedBar['rating'];
+                                    for ($i = 1; $i <= 5; $i++) {
+                                        if ($i <= $note) {
+                                            echo '<span class="star filled">★</span>';
+                                        } else {
+                                            echo '<span class="star empty">☆</span>';
+                                        }
+                                    }
+                                    ?>
+                                    <span class="note-chiffre">(<?php echo $note; ?>/5)</span>
+                                </div>
                                 <hr>
                                 <p class="manuscrit-text">" <?php echo nl2br(html_entity_decode(htmlspecialchars($selectedBar['description']))); ?> "</p>
                             </div>
@@ -117,16 +130,30 @@ try {
                             Supprimer cette escale
                             </a>
                         </div>
-
+                        <hr>
+                        <form action="/Beers-App/page-bar-list\bar-visibility.php" method="POST" class="visibility-form">
+                            <input type="hidden" name="bar_id" value="<?php echo $selectedBar['id']; ?>">
+                            <div class="field mb-4">
+                                <label class="checkbox is-size-6">
+                                    <input type="checkbox" id="public-toggle" 
+                                        data-bar-id="<?= $selectedBar['id']; ?>"
+                                        <?= ($selectedBar['is_public'] == 1) ? 'checked' : ''; ?> 
+                                        onchange="updateVisibility(this)"> 
+                                    <span id="status-text">📜 Partager dans le Grimoire Public</span>
+                                </label>
+                            </div>
+                        </form>
                     <?php else: ?>
                         <div class="placeholder-content">
                             <p>Ouvrez le grimoire et sélectionnez une escale pour lire vos récits...</p>
                         </div>
                     <?php endif; ?>
-
                 </div>
             </div>
         </div>
     </div>
+
+    <script src="/Beers-App/page-bar-list\bar-list.js"></script>
+
 </body>
 </html>

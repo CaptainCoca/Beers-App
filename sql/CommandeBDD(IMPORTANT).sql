@@ -34,3 +34,6 @@ CREATE TABLE IF NOT EXISTS bars_table (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
+
+/* Bref ta compris */
+ALTER TABLE bars_table ADD COLUMN is_public TINYINT(1) DEFAULT 0;

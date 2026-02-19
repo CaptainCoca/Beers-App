@@ -159,3 +159,33 @@ function restaurerCommentaire(id, texte) {
         block.querySelector('.comment-actions').style.display = 'block';
     }
 }
+
+function switchGrimoire(type) {
+    // 1. Cacher les deux sections
+    document.getElementById('grimoire-bieres').style.display = 'none';
+    document.getElementById('grimoire-bars').style.display = 'none';
+    
+    // 2. Enlever la classe active des boutons
+    document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+    
+    // 3. Afficher la bonne section et activer le bouton
+    if (type === 'bieres') {
+        document.getElementById('grimoire-bieres').style.display = 'block';
+        event.currentTarget.classList.add('active');
+    } else {
+        document.getElementById('grimoire-bars').style.display = 'block';
+        event.currentTarget.classList.add('active');
+    }
+}
+
+function toggleText(btn) {
+    const textZone = btn.previousElementSibling;
+    
+    if (textZone.classList.contains('clamped')) {
+        textZone.classList.remove('clamped');
+        btn.innerText = "▲ Réduire";
+    } else {
+        textZone.classList.add('clamped');
+        btn.innerText = "▼ Voir le récit";
+    }
+}

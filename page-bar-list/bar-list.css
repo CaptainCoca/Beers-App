@@ -90,7 +90,7 @@ html, body {
 /* Les boutons entourés à l'intérieur */
 .inner-btn {
     font-family: 'Almendra Display', serif;
-    font-size: 1.3rem !important;
+    font-size: 1.2rem !important;
     color: var(--noir-houblon) !important;
     text-decoration: none;
     background-color: var(--dorée);
@@ -98,7 +98,7 @@ html, body {
     /* Le détourage (l'entourage) */
     border: 2px solid var(--noir-houblon);
     border-radius: 6px; /* Coins légèrement arrondis comme sur ton dessin */
-    padding: 15px 20px !important; /* Espace entre le texte et sa bordure */
+    padding: 15px 5px !important; /* Espace entre le texte et sa bordure */
     
     transition: all 0.3s ease;
     display: inline-block;
@@ -369,4 +369,37 @@ select.input-manuscrit {
 
 .details-content {
     margin-top: 5px;
+}
+
+/* Container des étoiles */
+.note-stars {
+    display: flex;
+    align-items: center;
+}
+
+.label-note {
+    font-size: 1.1rem;
+    color: #4a3728;
+    margin-right: 12px;
+}
+
+.star {
+    font-size: 1.6rem;
+    margin-right: 3px;
+    transition: transform 0.2s ease;
+}
+
+.star.filled {
+    color: #d48a28;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); 
+}
+
+.star.empty {
+    color: rgba(74, 55, 40, 0.5);
+}
+.note-chiffre {
+    font-size: 0.9rem;
+    color: #6e4722;
+    margin-left: 10px;
+    font-style: italic;
 }

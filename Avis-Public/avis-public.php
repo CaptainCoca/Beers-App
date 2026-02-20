@@ -48,7 +48,14 @@ $public_bars = $stmtBars->fetchAll(PDO::FETCH_ASSOC);
             </div>
             <div class="column is-4">
                 <div id="auth-buttons" class="header-box buttons-container">
-                    <a href="/Beers-App/page-beer-list\beer-list.php" class="inner-btn">Mes bières</a>
+                    <div class="dropdown">
+                        <button class="inner-btn dropbtn"><strong>Mes Carnets ▼</strong></button>
+                        <div class="dropdown-content">
+                            <a href="/Beers-App/page-beer-list/beer-list.php">🍺 Mes bières</a>
+                            <a href="/Beers-App/page-bar-list/bar-list.php">📍 Mes Escales</a>
+                        </div>
+                    </div>
+        
                     <a href="/Beers-App/index.html" class="inner-btn">Retour à l'accueil</a>
                 </div>
             </div>

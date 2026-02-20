@@ -81,20 +81,22 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // --- 4. BARRE DE RECHERCHE ---
-    const searchInput = document.querySelector('.input-custom-search');
-    const searchBtn = document.querySelector('.inner-btn-search');
+    document.querySelector('.input-custom-search').addEventListener('input', function(e) {
 
-    function filtrerBieres() {
-        const searchWord = searchInput.value.toLowerCase();
-        const beerItems = document.querySelectorAll('.beer-list-item'); 
-        beerItems.forEach(item => {
-            const textContent = item.innerText.toLowerCase(); 
-            item.style.display = textContent.includes(searchWord) ? "flex" : "none";
-        });
-    }
+    const searchTerms = e.target.value.toLowerCase();
+    const beerCards = document.querySelectorAll('.beer-list-item:not(.bar-adventure-card)');
+    const barCards = document.querySelectorAll('.bar-adventure-card');
 
-    if (searchInput) searchInput.addEventListener('input', filtrerBieres);
-    if (searchBtn) searchBtn.addEventListener('click', (e) => { e.preventDefault(); filtrerBieres(); });
+    beerCards.forEach(card => {
+        const text = card.innerText.toLowerCase();
+        card.style.display = text.includes(searchTerms) ? 'flex' : 'none';
+    });
+
+    barCards.forEach(card => {
+        const text = card.innerText.toLowerCase();
+        card.style.display = text.includes(searchTerms) ? '' : 'none';
+    });
+});
 
 }); // FIN DU DOMContentLoaded
 

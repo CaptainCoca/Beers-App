@@ -1,0 +1,34 @@
+.barathon-layout {
+    display: flex;
+    height: 80vh; /* Pour que ça tienne dans l'écran */
+    gap: 20px;
+    padding: 20px;
+}
+
+.barathon-sidebar {
+    flex: 1; /* 1/3 de la largeur environ */
+    background: #f2cc8f;
+    border: 2px solid #4a3728;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+}
+
+.map-area {
+    flex: 2; /* 2/3 de la largeur */
+    border: 3px solid #4a3728;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+#map { height: 100%; width: 100%; }
+
+/* Style des détails (ton wireframe) */
+.details-container {
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 15px;
+    margin-top: 15px;
+}

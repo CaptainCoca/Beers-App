@@ -76,5 +76,131 @@ ALTER TABLE bars_table
     REFERENCES niort_bars_reference(id)
     ON DELETE SET NULL;
 
--- TRIGGERS (a faire)
+-- TRIGGERS
+DELIMITER $$
+
+CREATE TRIGGER trg_rating_after_insert
+AFTER INSERT ON bars_table
+FOR EACH ROW
+BEGIN
+  IF NEW.bar_ref_id IS NOT NULL THEN
+    UPDATE niort_bars_reference
+    SET rating = (
+      SELECT ROUND(AVG(rating), 2)
+      FROM bars_table
+      WHERE bar_ref_id = NEW.bar_ref_id
+    )
+    WHERE id = NEW.bar_ref_id;
+  END IF;
+END$$
+
+CREATE TRIGGER trg_rating_after_update
+AFTER UPDATE ON bars_table
+FOR EACH ROW
+BEGIN
+  IF NEW.bar_ref_id IS NOT NULL THEN
+    UPDATE niort_bars_reference
+    SET rating = (
+      SELECT ROUND(AVG(rating), 2)
+      FROM bars_table
+      WHERE bar_ref_id = NEW.bar_ref_id
+    )
+    WHERE id = NEW.bar_ref_id;
+  END IF;
+END$$
+
+CREATE TRIGGER trg_rating_after_delete
+AFTER DELETE ON bars_table
+FOR EACH ROW
+BEGIN
+  IF OLD.bar_ref_id IS NOT NULL THEN
+    UPDATE niort_bars_reference
+    SET rating = (
+      SELECT COALESCE(ROUND(AVG(rating), 2), 0)
+      FROM bars_table
+      WHERE bar_ref_id = OLD.bar_ref_id
+    )
+    WHERE id = OLD.bar_ref_id;
+  END IF;
+END$$
+
+DELIMITER ;
+
+-- 10 bars de niort pour commencé
+INSERT INTO niort_bars_reference 
+    (name, address, latitude, longitude, rating, phone, status, description) 
+VALUES
+(
+    'Le B-Pub',
+    '5 Esplanade de la République, 79000 Niort',
+    46.32412160, -0.45933248,
+    0, NULL, 'Ouvert',
+    'Bar-brasserie irlandais ouvert depuis 1991. Bières pression, whiskies, cocktails et restauration toute la journée. Écran géant pour les matchs.'
+),
+(
+    'Au Bureau',
+    '7 Esplanade de la République, 79000 Niort',
+    46.32409675, -0.45941666,
+    0, NULL, 'Ouvert',
+    'Pub-brasserie à l\'ambiance anglaise. Large choix de bières, burgers et plats à partager. Happy hours réguliers.'
+),
+(
+    'Le Temple Bar',
+    'Place du Temple, 79000 Niort',
+    46.32418100, -0.45919662,
+    0, NULL, 'Ouvert',
+    'Le bar irlandais de Niort, situé sur l\'esplanade de la place du Temple. Ambiance pub authentique.'
+),
+(
+    'Le 11 Bis Troquet Lounge',
+    '11 Bis Rue Victor Hugo, 79000 Niort',
+    46.32650106, -0.46443875,
+    0, NULL, 'Ouvert',
+    'Bar-lounge tendance du centre-ville, préféré des jeunes Niortais. Cocktails et ambiance moderne.'
+),
+(
+    'Le Hangar',
+    'Port Boineau, 79000 Niort',
+    46.33711784, -0.40030042,
+    0, NULL, 'Ouvert',
+    'Bar, restaurant et salle de concert avec dancefloor. Cuisine maison à base de produits frais. Lieu festif et convivial.'
+),
+(
+    'La Cervoiserie',
+    'Rue de la Gare, 79000 Niort',
+    46.31599087, -0.49372763,
+    0, NULL, 'Ouvert',
+    'Bar à thème dédié aux bières artisanales. Lieu convivial et animé avec une sélection unique de bières.'
+),
+(
+    'Le Disque Bleu',
+    'Avenue Saint Jean d\'Angély, 79000 Niort',
+    46.31725721, -0.46557912,
+    0, NULL, 'Ouvert',
+    'Bar chaleureux et décontracté. Bières pression, cocktails, vins. Soirées à thème et événements sportifs réguliers.'
+),
+(
+    'Magic Flonflon',
+    'Port Boinot, 3 Rue de la Chamoiserie, 79000 Niort',
+    46.32464553, -0.46952515,
+    0, NULL, 'Ouvert',
+    'Bar à vins et cocktails parmi les plus fréquentés de Niort. Lieu de rencontre et de détente.'
+),
+(
+    'La ØX Taverne',
+    'Esplanade du Jardin de la Brèche, 79000 Niort',
+    46.33461289, -0.42802630,
+    0, NULL, 'Ouvert',
+    'Taverne avec repas sur place. Ambiance unique et authentique au cœur de Niort.'
+),
+(
+    'Le Café Star',
+    'Route de Coulonges, 79000 Niort',
+    46.34357836, -0.47510833,
+    0, NULL, 'Ouvert',
+    'Café convivial et chaleureux. Boissons chaudes et froides, snacks. Idéal pour une pause détente.'
+);
+
+
+
 

@@ -13,14 +13,30 @@ try {
     die("Erreur de connexion : " . $e->getMessage());
 }
 
-$sql = "SELECT b.*, u.pseudo FROM beers_table b JOIN users u ON b.user_id = u.id WHERE b.is_public = 1 ORDER BY b.id DESC";
-$stmt = $pdo->query($sql);
-$public_beers = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-$sqlBars = "SELECT ba.*, u.pseudo FROM bars_table ba JOIN users u ON ba.user_id = u.id WHERE ba.is_public = 1 ORDER BY ba.id DESC";
+// Bars de référence avec moyenne des notes publiques
+$sqlBars = "
+    SELECT 
+        r.id, r.name, r.address, r.latitude, r.longitude,
+        r.rating, r.phone, r.status, r.description,
+        COUNT(b.id) as nb_avis
+    FROM niort_bars_reference r
+    LEFT JOIN bars_table b ON b.bar_ref_id = r.id AND b.is_public = 1
+    GROUP BY r.id
+    ORDER BY r.name ASC
+";
 $stmtBars = $pdo->query($sqlBars);
-$public_bars = $stmtBars->fetchAll(PDO::FETCH_ASSOC);
+$bars_reference = $stmtBars->fetchAll(PDO::FETCH_ASSOC);
 
+// Avis publics des utilisateurs (pour la sidebar)
+$sqlAvis = "
+    SELECT ba.*, u.pseudo 
+    FROM bars_table ba 
+    JOIN users u ON ba.user_id = u.id 
+    WHERE ba.is_public = 1 
+    ORDER BY ba.created_at DESC
+";
+$stmtAvis = $pdo->query($sqlAvis);
+$public_bars = $stmtAvis->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -52,39 +68,45 @@ $public_bars = $stmtBars->fetchAll(PDO::FETCH_ASSOC);
                 </div>
             </div>
         </header>
-    <body>
+
         <div class="barathon-layout">
             <aside class="barathon-sidebar">
                 <div class="search-box">
                     <input type="text" id="bar-search" placeholder="Chercher une escale...">
-                    <button class="btn-arrow">Rechercher</button>
+                    <button class="btn-arrow" onclick="searchBar()">Rechercher</button>
                 </div>
 
                 <div id="bar-details" class="details-container">
-                    <h2 id="detail-name">Nom du bar</h2>
-                    <div id="detail-rating">⭐⭐⭐⭐⭐ 5.0</div>
-                    <p id="detail-status"><span class="open">Ouvert</span> Ferme à 2:00</p>
-                    <p id="detail-phone">07 57 54 15 48</p>
+                    <h2 id="detail-name">Sélectionnez un bar</h2>
+                    <div id="detail-rating">—</div>
+                    <p id="detail-nb-avis" style="font-size:0.85rem; opacity:0.7;"></p>
+                    <p id="detail-status"></p>
+                    <p id="detail-phone"></p>
+                    <p id="detail-address" style="font-size:0.85rem;"></p>
             
-                    <div class="quote-box">
-                        <p>"Ce bar est exceptionnel, comme moi"</p>
+                    <div class="quote-box" id="avis-container">
+                        <p>Cliquez sur un marqueur pour voir les détails...</p>
                     </div>
 
                     <button class="btn-route">Créer le meilleur itinéraire</button>
                 </div>
 
-                <div class="steps-scroll-area" id="itinerary-list">
-                    </div>
+                <div class="steps-scroll-area" id="itinerary-list"></div>
             </aside>
 
             <main class="map-area">
                 <div id="map"></div>
             </main>
         </div>
-    </body>
+    </div>
+
+    <!-- Passage des données PHP → JS -->
+    <script>
+        const barsData = <?= json_encode($bars_reference, JSON_UNESCAPED_UNICODE) ?>;
+        const avisData = <?= json_encode($public_bars, JSON_UNESCAPED_UNICODE) ?>;
+    </script>
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="/Beers-App/Barathon/barathon.js"></script>
+</body>
 </html>
-
-
